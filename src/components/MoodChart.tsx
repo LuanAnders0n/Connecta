@@ -12,15 +12,7 @@ import {
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-interface MoodChartProps {
-  moodCounts: {
-    Desmotivado: number;
-    Estressado: number;
-    Ansioso: number;
-    Normal: number;
-    Feliz: number;
-  };
-}
+import MoodChartProps from '../app/type';
 
 const MoodChart: React.FC<MoodChartProps> = ({ moodCounts }) => {
   const data = {

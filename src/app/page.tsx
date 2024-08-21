@@ -1,21 +1,28 @@
 'use client';
-
+import moodCounts from './type.ts';
 import { useState, useEffect } from 'react';
 import MoodSelector from '../components/MoodSelector';
 import CommentForm from '../components/CommentForm';
 import CommentList from '../components/CommentList';
 import MoodChart from '../components/MoodChart';
 import styles from '../app/styles/Home.module.css';
-
 export default function Home() {
   const [comments, setComments] = useState<Comment[]>([]);
-  const [moodCounts, setMoodCounts] = useState<MoodCounts>({
+  const [moodCounts, setMoodCounts] = useState<moodCounts>({
     Triste: 0,
     Raiva: 0,
     Ansioso: 0,
     Normal: 0,
     Feliz: 0,
   });
+
+  type MoodCounts = {
+    Triste: number;
+    Raiva: number;
+    Ansioso: number;
+    Normal: number;
+    Feliz: number;
+  };
 
   useEffect(() => {
     const storedComments = JSON.parse(localStorage.getItem('comments') || '[]');
