@@ -17,7 +17,6 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
@@ -30,4 +29,40 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+/** {
+  scrollbar-width: thin;
+  scrollbar-color: #FFFFFF #B8B8B9;
+}*/
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 19px;
+  width: 19px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 15px;
+  background-color: #b8b8b9;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: #b8c0c2;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: #cfd8da;
+}
+
+*::-webkit-scrollbar-thumb {
+  width: 30px;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #ffffff;
 }
