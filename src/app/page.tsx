@@ -1,5 +1,5 @@
 'use client';
-import moodCounts from './type.ts';
+
 import { useState, useEffect } from 'react';
 import MoodSelector from '../components/MoodSelector';
 import CommentForm from '../components/CommentForm';
@@ -8,7 +8,7 @@ import MoodChart from '../components/MoodChart';
 import styles from '../app/styles/Home.module.css';
 export default function Home() {
   const [comments, setComments] = useState<Comment[]>([]);
-  const [moodCounts, setMoodCounts] = useState<moodCounts>({
+  const [moodCounts, setMoodCounts] = useState<MoodCounts>({
     Triste: 0,
     Raiva: 0,
     Ansioso: 0,
