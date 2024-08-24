@@ -6,6 +6,8 @@ import CommentForm from '../components/CommentForm';
 import CommentList from '../components/CommentList';
 import MoodChart from '../components/MoodChart';
 import styles from '../app/styles/Home.module.css';
+import { MoodCounts, Comment, MoodKey } from '../app/type';
+
 export default function Home() {
   const [comments, setComments] = useState<Comment[]>([]);
   const [moodCounts, setMoodCounts] = useState<MoodCounts>({
@@ -14,15 +16,9 @@ export default function Home() {
     Ansioso: 0,
     Normal: 0,
     Feliz: 0,
+    Desmotivado: 0,
+    Estressado: 0,
   });
-
-  type MoodCounts = {
-    Triste: number;
-    Raiva: number;
-    Ansioso: number;
-    Normal: number;
-    Feliz: number;
-  };
 
   useEffect(() => {
     const storedComments = JSON.parse(localStorage.getItem('comments') || '[]');

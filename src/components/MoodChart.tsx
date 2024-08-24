@@ -15,8 +15,8 @@ ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 interface MoodChartProps {
   moodCounts: {
     [key: string]: number;
-    Triste: number;
-    Raiva: number;
+    Desmotivado: number;
+    Estressado: number;
     Ansioso: number;
     Normal: number;
     Feliz: number;

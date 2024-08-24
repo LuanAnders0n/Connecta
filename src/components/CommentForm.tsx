@@ -1,49 +1,47 @@
-'use client';
-
 import { useState } from 'react';
+import { Comment } from '../app/type';
 import styles from '../app/styles/Home.module.css';
-
 interface CommentFormProps {
-  onAddComment: (comment: {
-    name: string;
-    comment: string;
-    likes: number;
-    reports: number;
-  }) => void;
+  onAddComment: (comment: Comment) => void; // Corrigido para usar o tipo Comment
 }
 
-const CommentForm: React.FC<CommentFormProps> = ({ onAddComment }) => {
-  const [name, setName] = useState<string>('');
-  const [comment, setComment] = useState<string>('');
+export default function CommentForm({ onAddComment }: CommentFormProps) {
+  const [name, setName] = useState('');
+  const [commentText, setCommentText] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onAddComment({ name, comment });
+    const newComment: Comment = {
+      id: Date.now(), // Exemplo de geração de ID simples
+      name,
+      comment: commentText,
+      likes: 0,
+      reports: 0,
+    };
+    onAddComment(newComment);
     setName('');
-    setComment('');
+    setCommentText('');
   };
 
   return (
-    <form className={styles.formContainer} onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <input
-        type="text"
         className={styles.inputField}
-        placeholder="Seu nome"
+        type="text"
+        placeholder="Nome"
         value={name}
         onChange={e => setName(e.target.value)}
       />
       <textarea
         className={styles.textareaField}
-        placeholder="Seu comentário"
-        value={comment}
-        onChange={e => setComment(e.target.value)}
+        placeholder="FeedBack"
+        value={commentText}
+        onChange={e => setCommentText(e.target.value)}
         required
-      ></textarea>
+      />
       <button type="submit" className={styles.button}>
         Enviar
       </button>
     </form>
   );
-};
-
-export default CommentForm;
+}
